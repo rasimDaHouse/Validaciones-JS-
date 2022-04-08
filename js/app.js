@@ -24,7 +24,7 @@ function eventListener() {
   btnReset.addEventListener("click", resetearFormulario);
 
   //enviar email
-  btnEnviar.addEventListener("click", enviarEmail);
+  formulario.addEventListener("submit", enviarEmail);
 }
 
 // Funciones

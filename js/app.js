@@ -52,7 +52,6 @@ function validarFormulario(e) {
   }
 
   if (e.target.type === "email") {
-    const resultado = e.target.value.indexOf("@");
     if (er.test(e.target.value)) {
       const error = document.querySelector("p.error");
       if (error) {
@@ -130,7 +129,7 @@ function enviarEmail(e) {
       parrafo.remove(); //elimina el msj de exito
 
       resetearFormulario();
-    }, 5000);
+    }, 4000);
   }, 3000);
 }
 
@@ -140,4 +139,19 @@ function resetearFormulario() {
   formulario.reset();
 
   iniciarApp();
+
+  eliminarColores(email, asunto, mensaje);
 }
+
+function eliminarColores(correo, asunto, mensaje) {
+  const clases = 'border-green-500';//Se elimina los verdes al hacer exitoso el correo
+  const clases2 = 'border-red-500';//Se elimina los rojos al presionar cualquier campo, salirse, y darle al reset, se elimina los rojos
+  correo.classList.remove(clases, clases2);
+  asunto.classList.remove(clases, clases2);
+  mensaje.classList.remove(clases, clases2);
+
+  const error = document.querySelector("p.error");
+      if (error) {
+        error.remove();
+      }
+};
